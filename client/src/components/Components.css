@@ -1,0 +1,44 @@
+:root {
+    --primary-color: #023047;
+    --secondary-color: #0077b6;
+    --tertiary-color: #caf0f8;
+    --contrast-color: #ffe046;
+    --dark-contrast-color: #ffc300;
+    --white: #fefae0;
+    --black: #001219;
+}
+
+/* Navbar css */
+
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8%;
+    color: var(--white);
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-x: auto;
+    padding: 0px 50px;
+}
+
+.logout {
+    background-color: var(--secondary-color);
+    margin-right: 70px;
+    border: none;
+    color: var(--white)
+}
+
+.logout:hover {
+    background-color: var(--tertiary-color);
+    color: var(--black);
+}
+
+.title {
+    font-size: 2rem;
+}
