@@ -2,10 +2,17 @@
     --primary-color: #023047;
     --secondary-color: #0077b6;
     --tertiary-color: #caf0f8;
-    --contrast-color: #ffe046;
-    --dark-contrast-color: #ffc300;
+    --contrast-color: #ff9f1c;
+    --dark-contrast-color: #e36414;
     --white: #fefae0;
     --black: #001219;
+}
+
+/* Base line CSS */
+
+body {
+    margin: 0;
+    padding-top: 4.2rem; 
 }
 
 /* Navbar css */
@@ -39,6 +46,165 @@
     color: var(--black);
 }
 
+.tears-logo {
+    height: 60px; 
+    width: 60px;
+    margin-right: 10px; 
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
 .title {
     font-size: 2rem;
+}
+
+
+/* Footer */
+
+.Footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 12%;
+    color: var(--white);
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0px 50px;
+    position: fixed;
+    bottom: 0; 
+    left: 0;
+}
+
+.Footer > * {
+    margin-right: 40px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.logo-image {
+    height: 80px; 
+    width: auto;
+    border-radius: 20%;
+}
+
+/* Public Bracket */
+
+.public-bracket-div {
+    width: 60%;
+    min-width: 600px;
+    height: 50%;
+    min-height: 400px;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    background-color: var(--tertiary-color);
+    border-radius: 2pt;
+}
+
+.public-bracket-header {
+    background-color: var(--dark-contrast-color);
+    color: var(--white);
+    width: 100%;
+    height: auto;
+    margin: 0;
+    text-align: center;
+    padding: 8px;
+    font-size: larger;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.public-bracket-content {
+    width: 100%;
+    text-align: left;
+    font-size: large;
+}
+
+.ranking {
+    height: 12.5%;
+    background-color: var(--tertiary-color);
+    border-bottom: 4px solid var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    border-right: 4px solid var(--primary-color);
+    padding: 4px;
+    overflow: hidden;
+}
+
+.first-ranking {
+    height: 12.5%;
+    background-color: var(--tertiary-color);
+    border: 4px solid var(--primary-color);
+    padding: 4px;
+    overflow: hidden;
+}
+
+/* My Bracket */
+
+.my-bracket-div {
+    width: 25%;
+    min-width: 240px;
+    height: 33%;
+    min-height: 260px;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    background-color: var(--tertiary-color);
+    border-radius: 10pt;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.my-bracket-div:hover {
+    box-shadow: none;
+
+}
+
+.my-bracket-header {
+    background-color: var(--dark-contrast-color);
+    color: var(--white);
+    width: 100%;
+    height: auto;
+    margin: 0;
+    text-align: center;
+    padding: 8px;
+    font-size: larger;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.my-bracket-content {
+    width: 100%;
+    text-align: left;
+    font-size: large;
+}
+
+/* Public Block */
+
+.public-block {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+
+/* Personal Block */
+
+.personal-block {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 64px;
 }

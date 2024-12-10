@@ -1,4 +1,5 @@
 import './Components.css'
+import TearsLogo from '../assets/TearsLogo.jfif'
 
 
 function Navbar(props) {
@@ -7,9 +8,11 @@ function Navbar(props) {
     return (
         <>
         <div className='Navbar'>
-            <span></span>
+            <img src={TearsLogo} alt="Tears Logo" className="tears-logo" />
             <span className='title'>TEARS</span>
-            <button className='logout' onClick={ logout }>Log Out</button>
+            <div>
+                <button className='logout' onClick={ logout }>Log Out</button>
+            </div>
         </div>
 
         </>

@@ -1,32 +1,26 @@
-import { useState } from 'react'
 import './App.css'
-import Navbar from './components/navbar';
-import Footer from './components/footer';
+import { useEffect, useState } from 'react';
+import HomePage from './pages/home';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState('home');
+  const [loading, setLoading] = useState(true);
 
-  async function logout() {
-    const res = await fetch("/registration/logout/", {
-      credentials: "same-origin", // include cookies!
-    });
-
-    if (res.ok) {
-      // navigate away from the single page app!
-      window.location = "/registration/sign_in/";
-    } else {
-      // handle logout failed!
-    }
+  async function getPage() {
+      setPage('home')
   }
+
+  useEffect(() => {
+      getPage();
+  }, [])
 
   return (
     <>
-      <div>
-        <Navbar logout={logout}/>
-      </div>
-      <div>
-        <Footer></Footer>
-      </div>
+    {page=='home' && <HomePage></HomePage>}
+    {page=='personal' && <PersonalPage></PersonalPage>}
+    {page=='public' && <PublicPage></PublicPage>}
+    {page=='brackets' && <BracketsPage></BracketsPage>}
+      
     </>
   )
 }
