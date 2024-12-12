@@ -1,15 +1,12 @@
 import './Components.css'
 
 function MyBrackets(props) {
-    const { brackets } = props;
+    const { } = props
 
-    function NavigateMyBrackets() {
-    
-    };
 
     return (
         <>
-            <div onClick={NavigateMyBrackets} className='my-bracket-div'>
+            <div className='my-bracket-div'>
                 <div className='my-bracket-header'>
                     My Brackets
                 </div>

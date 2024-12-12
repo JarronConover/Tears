@@ -1,0 +1,23 @@
+:root {
+    --primary-color: #023047;
+    --secondary-color: #0077b6;
+    --tertiary-color: #caf0f8;
+    --contrast-color: #ff9f1c;
+    --dark-contrast-color: #cd560d;
+    --white: #fefae0;
+    --black: #001219;
+}
+
+.bracket {
+    width: 25%;
+    min-width: 500px;
+    height: 20%;
+    min-height: 300px;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    background-color: var(--white);
+    border-radius: 10pt;
+    border: 4px solid white;}

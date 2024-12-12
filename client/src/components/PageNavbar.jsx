@@ -2,16 +2,16 @@ import './Components.css'
 import TearsLogo from '../assets/TearsLogo.jfif'
 
 
-function Navbar(props) {
-    const { logout } = props;
+function PageNavbar(props) {
+    const { title, button } = props;
 
     return (
         <>
         <div className='Navbar'>
             <img src={TearsLogo} alt="Tears Logo" className="tears-logo" />
-            <span className='title'>TEARS</span>
+            <span className='title'>{ title }</span>
             <div>
-                <button className='navbar-button' onClick={ logout }>Log Out</button>
+                { button }
             </div>
         </div>
 
@@ -19,4 +19,4 @@ function Navbar(props) {
     )
 }
 
-export default Navbar;
+export default PageNavbar;

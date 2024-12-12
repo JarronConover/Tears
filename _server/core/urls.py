@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('', view=views.index, name="index"),
     path('me/', view=views.me, name="current user"),
-    # path('personal/', view=views.personal, name="personal"),
-    # path('public/', view=views.public, name="public"),
-    # path('brackets/', view=views.brackets, name="brackets"),
+    path('create/', view=views.create_bracket, name="create bracket"),
+    path('brackets/', views.get_brackets, name="get brackets"),
+    path('bracket/<int:id>/', views.fill_bracket, name='fill bracket'),
 ]

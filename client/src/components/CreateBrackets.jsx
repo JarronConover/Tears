@@ -1,20 +1,20 @@
 import './Components.css'
 
-function FillOutBrackets(props) {
+function CreateBrackets(props) {
     const { } = props
 
     return (
         <>
             <div className='my-bracket-div'>
                 <div className='my-bracket-header'>
-                    Fill Out Brackets
+                    Create Brackets
                 </div>
                 <div className='my-bracket-content'>
-                        Fill out other peoples brackets that they have made!
+                    Create your own bracket to see what others think!
                 </div>
             </div>
         </>
     )
 }
 
-export default FillOutBrackets;
+export default CreateBrackets;

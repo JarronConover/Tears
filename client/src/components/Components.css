@@ -3,7 +3,7 @@
     --secondary-color: #0077b6;
     --tertiary-color: #caf0f8;
     --contrast-color: #ff9f1c;
-    --dark-contrast-color: #e36414;
+    --dark-contrast-color: #cd560d;
     --white: #fefae0;
     --black: #001219;
 }
@@ -13,6 +13,10 @@
 body {
     margin: 0;
     padding-top: 4.2rem; 
+}
+
+.no-underline {
+    text-decoration: none;
 }
 
 /* Navbar css */
@@ -34,14 +38,16 @@ body {
     padding: 0px 50px;
 }
 
-.logout {
+.navbar-button {
     background-color: var(--secondary-color);
     margin-right: 70px;
     border: none;
-    color: var(--white)
+    border-radius: 10px;
+    color: var(--white);
+    padding: 10px 20px;
 }
 
-.logout:hover {
+.navbar-button:hover {
     background-color: var(--tertiary-color);
     color: var(--black);
 }
@@ -108,7 +114,13 @@ body {
     overflow: hidden;
     background-color: var(--tertiary-color);
     border-radius: 2pt;
+    /* border: 4px solid white; */
 }
+
+/* .public-bracket-div:hover {
+    border: 4px solid var(--contrast-color);
+
+} */
 
 .public-bracket-header {
     background-color: var(--dark-contrast-color);
@@ -121,6 +133,7 @@ body {
     font-size: larger;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-bottom: 4px solid var(--primary-color);
 }
 
 .public-bracket-content {
@@ -130,8 +143,12 @@ body {
 }
 
 .ranking {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     height: 12.5%;
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
+    color: var(--white);
     border-bottom: 4px solid var(--primary-color);
     border-left: 4px solid var(--primary-color);
     border-right: 4px solid var(--primary-color);
@@ -139,17 +156,10 @@ body {
     overflow: hidden;
 }
 
-.first-ranking {
-    height: 12.5%;
-    background-color: var(--tertiary-color);
-    border: 4px solid var(--primary-color);
-    padding: 4px;
-    overflow: hidden;
-}
-
 /* My Bracket */
 
 .my-bracket-div {
+    font-weight:500;
     width: 25%;
     min-width: 240px;
     height: 33%;
@@ -161,18 +171,16 @@ body {
     overflow: hidden;
     background-color: var(--tertiary-color);
     border-radius: 10pt;
-    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+    border: 4px solid white;
 }
 
 .my-bracket-div:hover {
-    box-shadow: none;
-
+    border: 4px solid var(--contrast-color);
 }
 
 .my-bracket-header {
     background-color: var(--dark-contrast-color);
     color: var(--white);
-    width: 100%;
     height: auto;
     margin: 0;
     text-align: center;
@@ -183,9 +191,10 @@ body {
 }
 
 .my-bracket-content {
-    width: 100%;
     text-align: left;
     font-size: large;
+    color: var(--black);
+    padding: 8px;
 }
 
 /* Public Block */
@@ -195,7 +204,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 28px;
+    margin-bottom: 22px;
 }
 
 
@@ -206,5 +215,4 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 64px;
 }
