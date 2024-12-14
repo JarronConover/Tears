@@ -117,7 +117,7 @@ function CreatePage(props) {
                         required
                     />
                 </div>
-                <div>
+                <div className="description-div">
                     <label htmlFor="description" className="">Description:</label>
                     <textarea
                         id="description"
@@ -146,7 +146,6 @@ function CreatePage(props) {
                 </div>
                 {formData.numItems > 0 && (
                     <div className={`bracket-container-${formData.numItems}`}>
-                        {/* Left div with first half of items */}
                         <div className="w-1/2">
                             {Array.from({ length: Math.floor(formData.numItems / 2) }).map((_, index) => (
                                 <div className="div-for-item" key={index}>
@@ -163,49 +162,56 @@ function CreatePage(props) {
                         </div>
                         {/* Divs in between */}
                         {
-                            (() => {
-                                const dividerCounts = [1, 2, 4, 6];  // Dividers for 2, 4, 8, and 16 items
-                                const index = Math.log2(formData.numItems) - 1; // Get the correct index for the divider counts array
-                                const count = dividerCounts[index]; // Get the number of dividers
-                                
-                                // Generate the correct naming for divs
-                                const divNames = [];
-                                const halfCount = Math.floor(count / 2);
-
-                                // For even count of dividers, name them in this pattern: div-3, div-2, div-1, div-1, div-2, div-3
-                                if (count % 2 === 0) {
-                                    for (let i = halfCount; i >= 1; i--) {
-                                        divNames.push(`middle-div-${i}`);
-                                    }
-                                    for (let i = 1; i <= halfCount; i++) {
-                                        divNames.push(`middle-div-${i}`);
-                                    }
-                                } else {
-                                    // For odd count of dividers, name them in this pattern: div-3, div-2, div-1, div-1, div-2, div-3
-                                    for (let i = halfCount; i > 0; i--) {
-                                        divNames.push(`middle-div-${i}`);
-                                    }
-                                    divNames.push('middle-div-1');
-                                    for (let i = 2; i <= halfCount; i++) {
-                                        divNames.push(`middle-div-${i}`);
-                                    }
+                           (() => {
+                            const dividerCounts = [1, 2, 4, 6];  // Dividers for 2, 4, 8, and 16 items
+                            const index = Math.log2(formData.numItems) - 1; // Get the correct index for the divider counts array
+                            const count = dividerCounts[index]; // Get the number of dividers
+                        
+                            // Generate the correct naming for divs
+                            const divNames = [];
+                            const halfCount = Math.floor(count / 2);
+                        
+                            // For even count of dividers
+                            if (count % 2 === 0) {
+                                for (let i = halfCount; i >= 1; i--) {
+                                    divNames.push(`middle-div-${i}-left`);
                                 }
+                                for (let i = 1; i <= halfCount; i++) {
+                                    divNames.push(`middle-div-${i}-right`);
+                                }
+                            } else {
+                                // For odd count of dividers
+                                for (let i = halfCount; i > 0; i--) {
+                                    divNames.push(`middle-div-${i}-left`);
+                                }
+                                divNames.push('middle-div-1'); // Center div doesn't get left or right
+                                for (let i = 1; i <= halfCount; i++) {
+                                    divNames.push(`middle-div-${i}-right`);
+                                }
+                            }
 
                                 return divNames.map((name, idx) => {
                                     // Determine how many filler divs to add based on the name
                                     let fillerCount = 0;
-                                    if (name === "middle-div-1") {
+                                    if (name.includes("middle-div-1")) {
                                         fillerCount = 1;
-                                    } else if (name === "middle-div-2") {
+                                    } else if (name.includes("middle-div-2")) {
                                         fillerCount = 3;
-                                    } else if (name === "middle-div-3") {
+                                    } else if (name.includes("middle-div-3")) {
                                         fillerCount = 7;
                                     }
                                 
                                     // Generate the filler divs based on the fillerCount
-                                    const fillers = Array.from({ length: fillerCount }).map((_, i) => (
-                                        <div className="filler-div" key={`filler-${i + 1}`} />
-                                    ));
+                                    const fillers = Array.from({ length: fillerCount }).map((_, i) => {
+                                        // For each middle div, reset the alternation
+                                        const isEven = i % 2 === 1;
+                                        return (
+                                            <div
+                                                className={isEven ? "filler-div" : "filler-div-b"}
+                                                key={`filler-${i + 1}`}
+                                            />
+                                        );
+                                    });
                                 
                                     // Return the div with the filler divs inside
                                     return (

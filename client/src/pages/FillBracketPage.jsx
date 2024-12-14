@@ -107,10 +107,10 @@ function FillBracketPage() {
             <div>
                 <h1>Choose</h1>
                 {!winner && (
-                <div>
+                <div className="choices">
                     {displayedItems && displayedItems.length > 0 ? (
                         displayedItems.map((item, index) => (
-                            <div key={index} onClick={() => handleSelectItem(item)} className="navbar-button">
+                            <div key={index} onClick={() => handleSelectItem(item)} style={{background: selectedItem === item ? '#caf0f8' : '#0077b6',}} className="navbar-button">
                                 {item}
                             </div>
                         ))

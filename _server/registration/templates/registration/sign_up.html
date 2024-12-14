@@ -1,32 +1,161 @@
-{% extends "registration/base.html"%}
+{% extends "registration/base.html" %}
 
 {% block content %}
+<style>
+    :root {
+        --primary-color: #023047;
+        --secondary-color: #0077b6;
+        --tertiary-color: #caf0f8;
+        --contrast-color: #ff9f1c;
+        --dark-contrast-color: #cd560d;
+        --white: #fefae0;
+        --black: #001219;
+    }
+
+    /* Global Styles */
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: var(--black);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Form container */
+    form {
+        background-color: var(--tertiary-color);
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    /* Form title */
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: var(--black)
+    }
+
+    /* Form inputs */
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--primary-color);
+        text-align: left;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+        width: 90%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid var(--secondary-color);
+        border-radius: 4px;
+        font-size: 16px;
+        color: var(--black);
+        background-color: var(--tertiary-color);
+    }
+    input:hover {
+        border: 1px solid var(--primary-color);
+    }
+
+    input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus {
+        border-color: var(--contrast-color);
+        outline: none;
+    }
+
+    /* Submit button */
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: var(--secondary-color);
+        color: var(--white);
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: var(--primary-color);
+    }
+
+    /* Links */
+    a {
+        display: block;
+        margin-top: 15px;
+        color: var(--secondary-color);
+        font-size: 14px;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Button and link hover styles */
+    a:hover, button:hover {
+        color: var(--white);
+    }
+
+    /* Back Button */
+    .back-button {
+        margin-top: 20px;
+        padding: 12px;
+        background-color: var(--dark-contrast-color);
+        color: var(--white);
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+        background-color: var(--primary-color);
+    }
+
+</style>
+
 <form action="/registration/sign_up/" method="post">
-  {% csrf_token %}
-  <div>
-    <label>
-      First Name
-      <input type="text" name="first_name">
-    </label>
-  </div>
-  <div>
-    <label>
-      Last Name
-      <input type="text" name="last_name">
-    </label>
-  </div>
-  <div>
-    <label>
-      Email
-      <input type="email" name="email">
-    </label>
-  </div>
-  <div>
-    <label>
-      Password
-      <input type="password" name="password">
-    </label>
-  </div>
-  <button>Create Account</button>
+    {% csrf_token %}
+    <h2>Create Account</h2>
+
+    <div>
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" required>
+    </div>
+
+    <div>
+        <label for="last_name">Last Name</label>
+        <input type="text" name="last_name" required>
+    </div>
+
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" required>
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <button type="submit">Create Account</button>
+
+    <!-- Back Button -->
+    <button type="button" class="back-button" onclick="window.history.back();">Back</button>
 </form>
+
 {% endblock %}
